@@ -7,7 +7,7 @@ from langchain_core.messages import BaseMessage
 from langchain_huggingface import HuggingFaceEndpoint,ChatHuggingFace
 from langgraph.graph.message import add_messages
 from dotenv import load_dotenv
-from langgraph.checkpoint.sqlite import SqliteSaver
+from langgraph_checkpoint_sqlite import SqliteSaver
 import sqlite3
 
 
