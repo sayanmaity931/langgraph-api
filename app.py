@@ -7,7 +7,7 @@ from langchain_core.messages import BaseMessage
 from langchain_huggingface import HuggingFaceEndpoint,ChatHuggingFace
 from langgraph.graph.message import add_messages
 from dotenv import load_dotenv
-from langgraph_checkpoint_sqlite import SqliteSaver
+from langgraph.checkpoint.memory import InMemorySaver
 import sqlite3
 
 
@@ -30,8 +30,7 @@ def chat_node(state: ChatState):
     response = llm.invoke(messages)
     return {"messages": [response]}
 
-conn = sqlite3.connect("chat_memory.db", check_same_thread=False) 
-checkpointer = SqliteSaver(conn) ## u can use InMemorySaver()
+checkpointer = InMemorySaver()
 
 graph = StateGraph(ChatState)
 graph.add_node("chat_node", chat_node)

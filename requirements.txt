@@ -1,7 +1,6 @@
 fastapi
 uvicorn
 langgraph
-langgraph-checkpoint-sqlite
 langchain-core
 langchain-huggingface
 huggingface-hub
